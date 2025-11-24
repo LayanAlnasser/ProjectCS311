@@ -14,18 +14,20 @@ import java.util.*;
 public class ProjectCS311 {
 
     public static void main(String[] args) throws Exception {
-      Scanner input = new Scanner(System.in);
+        Scanner input = new Scanner(System.in);
 
         // List all datasets
         List<String> datasets = DatasetLoader.listDatasets();
+        System.out.println();
         System.out.println("Available datasets:");
         for (int i = 0; i < datasets.size(); i++) {
-            System.out.println((i+1) + ". " + datasets.get(i));
+            System.out.println((i + 1) + ". " + datasets.get(i));
         }
-
+        System.out.println();
         System.out.print("Choose dataset number: ");
         int choice = input.nextInt();
-        String filename = datasets.get(choice-1);
+        System.out.println();
+        String filename = datasets.get(choice - 1);
 
         List<Item> items = DatasetLoader.loadDataset(filename);
 
@@ -53,8 +55,3 @@ public class ProjectCS311 {
         System.out.println("Result = " + result);
     }
 }
-
-
-
-
-
