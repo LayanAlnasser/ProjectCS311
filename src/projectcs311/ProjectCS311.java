@@ -1,16 +1,8 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Main.java to edit this template
- */
 package projectcs311;
 
 import java.io.*;
 import java.util.*;
 
-/**
- *
- * @author NorahAbdullah
- */
 public class ProjectCS311 {
 
     public static void main(String[] args) throws Exception {
@@ -45,13 +37,28 @@ public class ProjectCS311 {
         sc.close();
 
         double result = 0;
+        long startTime = System.nanoTime();
+        
         switch (algo) {
-            case 1 -> result = KnapsackSolver.greedyRatio(items, capacity, true);
-            case 2 -> result = KnapsackSolver.greedyValue(items, capacity);
-            case 3 -> result = KnapsackSolver.randomSampling(items, capacity);
-            case 4 -> result = KnapsackSolver.monteCarlo(items, capacity, 1000);
+            case 1: 
+                result = KnapsackSolver.greedyRatio(items, capacity, true);
+                break;
+            case 2: 
+                result = KnapsackSolver.greedyValue(items, capacity);
+                break;
+            case 3: 
+                result = KnapsackSolver.randomSampling(items, capacity);
+                break;
+            case 4: 
+                result = KnapsackSolver.monteCarlo(items, capacity, 1000);
+                break;
         }
+        
+        long endTime = System.nanoTime();
+        long duration = (endTime - startTime) / 1000000; // Convert to milliseconds
 
         System.out.println("Result = " + result);
+        System.out.println("Execution Time = " + duration + " ms");
     }
+    
 }
